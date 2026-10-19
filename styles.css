@@ -18,14 +18,14 @@ p, h1, h3, a, .list {
     margin: 0;
 }
 
-/* Am Rechner (mit echter Maus): beim Drüberfahren unsichtbar */
+/* Am Rechner (mit Maus): beim Drüberfahren unsichtbar */
 @media (hover: hover) {
     h1:hover, h3:hover, a:hover {
         color: transparent;
     }
 }
 
-/* Auf dem Handy (Touchscreen): beim Antippen schwarz + unterstrichen */
+/* Auf dem Handy (Touchscreen): beim Antippen unterstrichen */
 @media (hover: none) {
     h1:active, h3:active, a:active,
     h1:focus, h3:focus, a:focus {
@@ -38,7 +38,7 @@ a.active {
     text-decoration: underline;
 }
 
-/* Fixierte Sidebar links (schwebt auf Mobile über den Bildern) */
+/* Fixierte Sidebar links */
 .nav {
     padding-left: 15px;
     display: flex;
@@ -51,10 +51,10 @@ a.active {
     height: 100dvh;
     justify-content: space-between;
     background-color: transparent;
-    pointer-events: none; /* Erlaubt das Scrollen auch auf der linken Seite */
+    pointer-events: none;
 }
 
-.nav a, .nav-content {
+.nav a, .nav-content, .nav-body {
     pointer-events: auto;
 }
 
@@ -65,7 +65,7 @@ a.active {
     font-size: small;
 }
 
-/* Daten direkt unter dem Titel angeordnet */
+/* Datumsliste: bei Überlänge scrollbar ohne sichtbaren Scrollbalken */
 .nav-body {
     display: flex;
     flex-direction: column;
@@ -73,11 +73,19 @@ a.active {
     margin-top: 15px;
     width: fit-content;
     font-size: small;
+    max-height: 75dvh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.nav-body::-webkit-scrollbar {
+    display: none;
 }
 
 .nav-footer {
     color: rgb(173, 173, 173);
-    font-size: small;
+    font-size: x-small;
     margin-bottom: 10px;
 }
 
@@ -110,7 +118,7 @@ a.active {
 }
 
 .caption {
-    padding: 6px 15px 18px 15px;
+    padding: 6px 4px 18px 4px;
     font-size: small;
     line-height: 1.4;
 }
@@ -121,7 +129,7 @@ a.active {
     padding: 5px 5px;
 }
 
-/* Mobile: Bilder über die volle Breite, Navigation schwebt links darüber */
+/* Mobile: Bilder über die volle Breite */
 @media (max-width: 768px) {
     .container {
         margin-left: 0;
