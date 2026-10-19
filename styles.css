@@ -68,7 +68,7 @@ a.active {
     margin-top: 15px;
     width: fit-content;
     font-size: small;
-    max-height: 448px; /* Am Rechner exakt 25 Zeilen ohne Anschnitt */
+    max-height: 538px; /* Am Rechner exakt 25 Zeilen ohne Anschnitt */
     overflow-y: auto;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
