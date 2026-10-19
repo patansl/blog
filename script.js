@@ -97,3 +97,10 @@ async function loadArenaFeed() {
 }
 
 loadArenaFeed();
+// NUR ZUM TESTEN: Erzeugt 50 Dummy-Daten in der linken Liste
+for (let i = 1; i <= 50; i++) {
+    const testLink = document.createElement("a");
+    testLink.href = "#";
+    testLink.textContent = `${String(i).padStart(2, "0")} 10 26`;
+    dateNav.appendChild(testLink);
+}
