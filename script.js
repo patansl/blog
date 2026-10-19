@@ -4,7 +4,7 @@ const ARENA_CHANNEL_SLUG = "blog-stvpsg6449s";
 const feedContainer = document.getElementById("feedContainer");
 const dateNav = document.getElementById("dateNav");
 
-// Filtert automatische Kamera-Dateinamen (wie "IMG_1234.JPG" oder "Screenshot...") heraus
+// Filtert automatische Kamera-/iPhone-Dateinamen heraus
 function getCleanCaption(block) {
     if (block.description && block.description.trim() !== "") {
         return block.description.trim();
@@ -26,7 +26,7 @@ function getCleanCaption(block) {
 
 async function loadArenaFeed() {
     try {
-        const response = await fetch(`https://api.are.na/v2/channels/${ARENA_CHANNEL_SLUG}/contents?per=100`);
+        const response = await fetch(`https://api.are.na/v2/channels/${ARENA_CHANNEL_SLUG}/contents?per=100&t=${Date.now()}`);
         if (!response.ok) {
             throw new Error("Channel konnte nicht geladen werden.");
         }
@@ -101,8 +101,8 @@ async function loadArenaFeed() {
 
 loadArenaFeed();
 
-// Startzeitpunkt deiner Reise (Jahr-Monat-TagTStunde:Minute:Sekunde):
-const TRIP_START = new Date("2026-10-19T21:35:00+02:00");
+// --- REISE-TIMER OBEN RECHTS ---
+const TRIP_START = new Date("2026-10-19T09:35:00+02:00");
 
 function updateTripTimer() {
     const timerEl = document.getElementById("tripTimer");
@@ -116,12 +116,8 @@ function updateTripTimer() {
     const minutes = String(Math.floor((diffSeconds % 3600) / 60)).padStart(2, "0");
     const seconds = String(diffSeconds % 60).padStart(2, "0");
 
-    // Anzeigeformat z. B.: "0d 04h 21m 09s" oder "00:04:21:09"
-    timerEl.textContent = `${String(days).padStart(2, "0")}:${hours}:${minutes}:${seconds}`;)
+    timerEl.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
 }
 
 setInterval(updateTripTimer, 1000);
 updateTripTimer();
-
-
-
