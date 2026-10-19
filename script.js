@@ -41,21 +41,32 @@ async function loadArenaFeed() {
             const itemDiv = document.createElement("div");
             itemDiv.className = "entry";
 
-            // 1. Automatische Monatsnavigation (z. B. "10 26") links erzeugen
+                    let lastDateString = "";
+
+        blocks.forEach((block, index) => {
+            if (block.class !== "Image" && block.class !== "Text") return;
+
+            const itemDiv = document.createElement("div");
+            itemDiv.className = "entry";
+
+            // 1. Automatische Tagesnavigation (z. B. "19 10 26") links erzeugen
             if (block.created_at) {
                 const dateObj = new Date(block.created_at);
+                const day = String(dateObj.getDate()).padStart(2, "0");
                 const month = String(dateObj.getMonth() + 1).padStart(2, "0");
                 const year = String(dateObj.getFullYear()).slice(-2);
-                const monthYear = `${month} ${year}`;
+                
+                // Format: Tag Monat Jahr (z. B. "19 10 26")
+                const fullDate = `${day} ${month} ${year}`;
 
-                if (monthYear !== lastMonthYear) {
-                    lastMonthYear = monthYear;
+                if (fullDate !== lastDateString) {
+                    lastDateString = fullDate;
                     const anchorId = "date-" + index;
                     itemDiv.id = anchorId;
 
                     const navLink = document.createElement("a");
                     navLink.href = "#" + anchorId;
-                    navLink.textContent = monthYear;
+                    navLink.textContent = fullDate;
                     dateNav.appendChild(navLink);
                 }
             }
