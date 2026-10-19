@@ -18,7 +18,6 @@ p, h1, h3, a, .list {
     margin: 0;
 }
 
-/* Text wird beim Überfahren mit der Maus unsichtbar */
 h1:hover, h3:hover, a:hover {
     color: transparent;
 }
@@ -27,7 +26,7 @@ a.active {
     text-decoration: underline;
 }
 
-/* Fixierte Sidebar links */
+/* Fixierte Sidebar links (schwebt auf Mobile über den Bildern) */
 .nav {
     padding-left: 15px;
     display: flex;
@@ -36,10 +35,15 @@ a.active {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 10;
     height: 100dvh;
     justify-content: space-between;
     background-color: transparent;
+    pointer-events: none; /* Erlaubt das Scrollen auch auf der linken Seite */
+}
+
+.nav a, .nav-content {
+    pointer-events: auto;
 }
 
 .nav-content {
@@ -49,11 +53,12 @@ a.active {
     font-size: small;
 }
 
+/* Daten direkt unter dem Titel angeordnet */
 .nav-body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     gap: 2px;
+    margin-top: 15px;
     width: fit-content;
     font-size: small;
 }
@@ -64,7 +69,7 @@ a.active {
     margin-bottom: 10px;
 }
 
-/* Rechter Inhaltsbereich: Bilder schließen direkt aneinander an */
+/* Desktop: Bilder rechts neben der Sidebar */
 .container {
     margin-left: 260px;
     padding-right: 100px;
@@ -92,9 +97,8 @@ a.active {
     transform: translateY(0);
 }
 
-/* Falls doch eine Bildunterschrift oder ein Text-Block dazwischen liegt */
 .caption {
-    padding: 6px 0 18px 0;
+    padding: 6px 15px 18px 15px;
     font-size: small;
     line-height: 1.4;
 }
@@ -102,16 +106,13 @@ a.active {
 .text-entry {
     font-size: small;
     line-height: 1.4;
-    padding: 20px 0;
+    padding: 20px 15px;
 }
 
-/* Anpassung für Smartphones */
+/* Mobile: Bilder über die volle Breite, Navigation schwebt links darüber */
 @media (max-width: 768px) {
-    .nav-content {
-        min-width: auto;
-    }
     .container {
-        margin-left: 95px;
+        margin-left: 0;
         padding-right: 0;
     }
 }
