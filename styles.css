@@ -39,50 +39,52 @@ a.active {
 }
 
 /* Fixierte Sidebar links */
+
 .nav {
     padding-left: 15px;
     display: flex;
     flex-direction: column;
-    min-width: fit-content;
+    width: fit-content;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 10;
-    height: 100dvh;
+    height: 100svh;
     justify-content: space-between;
     background-color: transparent;
-    pointer-events: none;
-}
-
-.nav a, .nav-content, .nav-body {
-    pointer-events: auto;
+    pointer-events: none; /* Lässt Wischgesten auf die Bilder dahinter durch */
 }
 
 .nav-content {
     margin-top: 15px;
-    min-width: 200px;
-    max-width: 225px;
+    width: fit-content; /* Kein 200px-Kasten mehr über den Bildern */
     font-size: small;
+    pointer-events: none;
 }
 
-/* Datumsliste: bei Überlänge scrollbar ohne sichtbaren Scrollbalken */
+/* Nur die Zahlen selbst (ca. 55px breit ganz links) reagieren auf Berührung */
 .nav-body {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+    display: block;
     margin-top: 15px;
     width: fit-content;
     font-size: small;
-    max-height: 75dvh;
+    max-height: 70svh;
     overflow-y: auto;
+    overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    pointer-events: auto;
+}
+
+.nav-body a {
+    display: block;
+    margin-bottom: 2px;
+    pointer-events: auto;
 }
 
 .nav-body::-webkit-scrollbar {
     display: none;
 }
-
 .nav-footer {
     color: rgb(173, 173, 173);
     font-size: x-small;
