@@ -64,22 +64,24 @@ a.active {
     margin-bottom: 10px;
 }
 
-/* Rechter Inhaltsbereich für Bilder und Texte */
+/* Rechter Inhaltsbereich: Bilder schließen direkt aneinander an */
 .container {
     margin-left: 260px;
-    padding: 15px 36px;
-    max-width: 580px;
+    padding-right: 100px;
 }
 
 .entry {
-    margin-bottom: 55px;
+    margin: 0;
+    padding: 0;
 }
 
 .entry img {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 1px;
+    margin: 0;
+    padding: 0;
+    border: 0;
     opacity: 0;
     transform: translateY(10px);
     transition: opacity 0.5s ease, transform 0.5s ease;
@@ -90,8 +92,9 @@ a.active {
     transform: translateY(0);
 }
 
+/* Falls doch eine Bildunterschrift oder ein Text-Block dazwischen liegt */
 .caption {
-    margin-top: 6px;
+    padding: 6px 0 18px 0;
     font-size: small;
     line-height: 1.4;
 }
@@ -99,7 +102,7 @@ a.active {
 .text-entry {
     font-size: small;
     line-height: 1.4;
-    padding: 10px 0;
+    padding: 20px 0;
 }
 
 /* Anpassung für Smartphones */
@@ -109,6 +112,6 @@ a.active {
     }
     .container {
         margin-left: 95px;
-        padding: 15px 15px 15px 0;
+        padding-right: 0;
     }
 }
