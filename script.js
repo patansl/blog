@@ -117,7 +117,7 @@ function updateTripTimer() {
     const seconds = String(diffSeconds % 60).padStart(2, "0");
 
     // Anzeigeformat z. B.: "0d 04h 21m 09s" oder "00:04:21:09"
-    timerEl.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    timerEl.textContent = `${String(days).padStart(2, "0")}:${hours}:${minutes}:${seconds}`;)
 }
 
 setInterval(updateTripTimer, 1000);
