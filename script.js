@@ -1,11 +1,10 @@
-// HIER deinen Are.na Channel-Namen (Slug aus der URL) eintragen:
+// Dein Are.na Channel-Slug:
 const ARENA_CHANNEL_SLUG = "blog-stvpsg6449s";
 
 const feedContainer = document.getElementById("feedContainer");
 const dateNav = document.getElementById("dateNav");
 
-// Filtert automatische Kamera-Dateinamen (wie "IMG_1234.JPG" oder ".heic") heraus,
-// falls du ein Bild ohne Bildunterschrift hochlädst
+// Filtert automatische Kamera-Dateinamen (wie "IMG_1234.JPG" oder "Screenshot...") heraus
 function getCleanCaption(block) {
     if (block.description && block.description.trim() !== "") {
         return block.description.trim();
@@ -21,6 +20,7 @@ function getCleanCaption(block) {
     }
     return "";
 }
+
 async function loadArenaFeed() {
     try {
         const response = await fetch(`https://api.are.na/v2/channels/${ARENA_CHANNEL_SLUG}/contents?per=100`);
@@ -33,15 +33,7 @@ async function loadArenaFeed() {
         // Sortiert alle Einträge automatisch so, dass der neueste immer ganz oben steht
         blocks.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
-        let lastMonthYear = "";
-
-        blocks.forEach((block, index) => {
-            if (block.class !== "Image" && block.class !== "Text") return;
-
-            const itemDiv = document.createElement("div");
-            itemDiv.className = "entry";
-
-                    let lastDateString = "";
+        let lastDateString = "";
 
         blocks.forEach((block, index) => {
             if (block.class !== "Image" && block.class !== "Text") return;
@@ -55,8 +47,7 @@ async function loadArenaFeed() {
                 const day = String(dateObj.getDate()).padStart(2, "0");
                 const month = String(dateObj.getMonth() + 1).padStart(2, "0");
                 const year = String(dateObj.getFullYear()).slice(-2);
-                
-                // Format: Tag Monat Jahr (z. B. "19 10 26")
+
                 const fullDate = `${day} ${month} ${year}`;
 
                 if (fullDate !== lastDateString) {
