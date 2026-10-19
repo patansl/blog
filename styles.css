@@ -78,6 +78,7 @@ a.active {
 
 .nav-body a {
     display: block;
+    line-height: 16px;
     margin-bottom: 2px;
     pointer-events: auto;
 }
@@ -138,6 +139,7 @@ a.active {
         padding-right: 0;
     }
     .nav-body {
-        max-height: 255px; /* Entspricht genau 15 Datums-Zeilen */
+        max-height: 268px; /* 15 Zeilen à 18px (ohne die letzten 2px Abstand) */
     }
+    
 }
