@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>blog</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+</head>
+<body class="blog">
+    <div class="main">
+        <!-- Fixierte linke Navigation -->
+        <section class="nav">
+            <div class="nav-content">
+                <div><a href="#">dein name</a></div>
+                <!-- Optional: Falls du Links links oben möchtest, Kommentarzeichen entfernen: -->
+                <!-- <div><a href="https://instagram.com/deinname" target="_blank">ig</a></div> -->
+                <!-- <div><a href="mailto:deine@mail.de">contact</a></div> -->
+            </div>
+
+            <!-- Hier fügt JS automatisch die Monatsnavigation (z. B. 10 26) ein -->
+            <div class="nav-body" id="dateNav"></div>
+
+            <div class="nav-footer">
+                2026
+            </div>
+        </section>
+
+        <!-- Scrollbarer Blog-Bereich rechts -->
+        <main class="container" id="feedContainer"></main>
+    </div>
+</body>
+</html>
