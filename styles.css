@@ -18,8 +18,20 @@ p, h1, h3, a, .list {
     margin: 0;
 }
 
-h1:hover, h3:hover, a:hover {
-    color: transparent;
+/* Am Rechner (mit echter Maus): beim Drüberfahren unsichtbar */
+@media (hover: hover) {
+    h1:hover, h3:hover, a:hover {
+        color: transparent;
+    }
+}
+
+/* Auf dem Handy (Touchscreen): beim Antippen schwarz + unterstrichen */
+@media (hover: none) {
+    h1:active, h3:active, a:active,
+    h1:focus, h3:focus, a:focus {
+        color: black;
+        text-decoration: underline;
+    }
 }
 
 a.active {
