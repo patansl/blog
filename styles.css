@@ -95,7 +95,7 @@ a.active {
 #tripTimer {
     position: fixed;
     top: 15px;
-    right: 15px;
+    right: 115px; /* Am Rechner: 100px weißer Rand + 15px ins Bild */
     z-index: 10;
     font-size: small;
     color: white;
@@ -166,10 +166,13 @@ a.active {
     .nav-body {
         max-height: 268px;
     }
-    /* Schiebt auf dem Handy nur den Text rechts an den Daten vorbei */
     .text-entry {
-        padding-left: 85px;  /* Abstand links (ca. 85px reicht für die Daten, 115px auch für den Titel oben) */
-        padding-right: 15px; /* Kleiner Abstand zum rechten Rand */
+        padding-left: 85px;
+        padding-right: 15px;
     }
+    #tripTimer {
+        right: 15px; /* Auf dem Handy geht das Bild bis ganz nach rechts */
+    }
+}
     
 }
