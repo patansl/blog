@@ -92,6 +92,16 @@ a.active {
     margin-bottom: 10px;
 }
 
+#tripTimer {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 10;
+    font-size: small;
+    color: black;
+    pointer-events: none;
+}
+
 /* Desktop: Bilder rechts neben der Sidebar */
 .container {
     margin-left: 260px;
