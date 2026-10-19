@@ -12,14 +12,15 @@ function getCleanCaption(block) {
     }
     if (block.title && block.title.trim() !== "") {
         const title = block.title.trim();
-        const isAutoFilename = /\.(jpe?g|png|gif|webp|heic|heif|avif|bmp|tiff)$/i.test(title) || /^IMG_\d+/i.test(title);
+        const isAutoFilename =
+            /\.(jpe?g|png|gif|webp|heic|heif|avif|bmp|tiff)$/i.test(title) ||
+            /^(IMG_|DSC_|Screenshot|Bildschirmfoto|Photo\s)/i.test(title);
         if (!isAutoFilename) {
             return title;
         }
     }
     return "";
 }
-
 async function loadArenaFeed() {
     try {
         const response = await fetch(`https://api.are.na/v2/channels/${ARENA_CHANNEL_SLUG}/contents?per=100`);
