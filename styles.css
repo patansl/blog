@@ -150,7 +150,7 @@ a.active {
 .text-entry {
     font-size: small;
     line-height: 1.4;
-    padding: 5px 5px;
+    padding: 0px 0px;
 }
 /* Wenn der allererste Post ein reiner Text ist: auf Höhe des 1. Datums starten */
 .entry:first-child .text-entry {
