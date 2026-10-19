@@ -12,8 +12,11 @@ function getCleanCaption(block) {
     if (block.title && block.title.trim() !== "") {
         const title = block.title.trim();
         const isAutoFilename =
-            /\.(jpe?g|png|gif|webp|heic|heif|avif|bmp|tiff)$/i.test(title) ||
-            /^(IMG_|DSC_|Screenshot|Bildschirmfoto|Photo\s)/i.test(title);
+            /\.(jpe?g|png|gif|webp|heic|heif|avif|bmp|tiff|mov|mp4)$/i.test(title) ||
+            /^(IMG|DSC|PXL|APC|MVI|SAM|DJI|GOPR|Screenshot|Bildschirmfoto|Photo|Image|WhatsApp|FullSizeRender|Untitled)/i.test(title) ||
+            /^[0-9a-f]{8}-[0-9a-f]{4}-/i.test(title) ||
+            /^[0-9a-f]{24,}$/i.test(title) ||
+            /^\d{6,}[_-]\d+/i.test(title);
         if (!isAutoFilename) {
             return title;
         }
