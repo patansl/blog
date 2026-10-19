@@ -139,7 +139,12 @@ a.active {
         padding-right: 0;
     }
     .nav-body {
-        max-height: 268px; /* 15 Zeilen à 18px (ohne die letzten 2px Abstand) */
+        max-height: 268px;
+    }
+    /* Schiebt auf dem Handy nur den Text rechts an den Daten vorbei */
+    .text-entry {
+        padding-left: 85px;  /* Abstand links (ca. 85px reicht für die Daten, 115px auch für den Titel oben) */
+        padding-right: 15px; /* Kleiner Abstand zum rechten Rand */
     }
     
 }
