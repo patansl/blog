@@ -98,7 +98,7 @@ a.active {
     right: 15px;
     z-index: 10;
     font-size: small;
-    color: black;
+    color: white;
     pointer-events: none;
 }
 
