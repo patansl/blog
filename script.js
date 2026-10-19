@@ -102,7 +102,7 @@ async function loadArenaFeed() {
 loadArenaFeed();
 
 // --- REISE-TIMER OBEN RECHTS ---
-const TRIP_START = new Date("2026-10-19T09:35:00+02:00");
+const TRIP_START = new Date("2026-10-19T21:35:00+02:00");
 
 function updateTripTimer() {
     const timerEl = document.getElementById("tripTimer");
