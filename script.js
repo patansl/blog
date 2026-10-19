@@ -1,5 +1,5 @@
 // HIER deinen Are.na Channel-Namen (Slug aus der URL) eintragen:
-const ARENA_CHANNEL_SLUG = "dein-channel-slug";
+const ARENA_CHANNEL_SLUG = "blog-stvpsg6449s";
 
 const feedContainer = document.getElementById("feedContainer");
 const dateNav = document.getElementById("dateNav");
