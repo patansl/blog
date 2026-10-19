@@ -131,6 +131,10 @@ a.active {
     line-height: 1.4;
     padding: 5px 5px;
 }
+/* Wenn der allererste Post ein reiner Text ist: auf Höhe des 1. Datums starten */
+.entry:first-child .text-entry {
+    padding-top: 46px;
+}
 
 /* Mobile: Bilder über die volle Breite */
 @media (max-width: 768px) {
