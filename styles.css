@@ -99,6 +99,7 @@ a.active {
 }
 
 .entry {
+    position: relative; /* Macht das Bild zum Bezugspunkt für den Text darauf */
     margin: 0;
     padding: 0;
 }
@@ -121,9 +122,19 @@ a.active {
 }
 
 .caption {
-    padding: 6px 4px 18px 4px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
     font-size: small;
     line-height: 1.4;
+    text-align: center;
+    text-transform: lowercase; /* Optional: Macht den Text automatisch kleinbuchstabig wie im Original */
+    width: 80%;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
 }
 
 .text-entry {
