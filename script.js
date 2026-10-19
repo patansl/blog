@@ -101,5 +101,27 @@ async function loadArenaFeed() {
 
 loadArenaFeed();
 
+// Startzeitpunkt deiner Reise (Jahr-Monat-TagTStunde:Minute:Sekunde):
+const TRIP_START = new Date("2026-10-19T21:35:00+02:00");
+
+function updateTripTimer() {
+    const timerEl = document.getElementById("tripTimer");
+    if (!timerEl) return;
+
+    const now = new Date();
+    const diffSeconds = Math.max(0, Math.floor((now - TRIP_START) / 1000));
+
+    const days = Math.floor(diffSeconds / 86400);
+    const hours = String(Math.floor((diffSeconds % 86400) / 3600)).padStart(2, "0");
+    const minutes = String(Math.floor((diffSeconds % 3600) / 60)).padStart(2, "0");
+    const seconds = String(diffSeconds % 60).padStart(2, "0");
+
+    // Anzeigeformat z. B.: "0d 04h 21m 09s" oder "00:04:21:09"
+    timerEl.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}
+
+setInterval(updateTripTimer, 1000);
+updateTripTimer();
+
 
 
